@@ -70,6 +70,20 @@ router.get('/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    let id=req.params.id;
+    book.findById(id,(err,bookObject)=>{
+      if(err){
+        console.log(err);
+        res.end(err);
+      }
+      else{
+          //show the detail view for edit or delete
+          res.render('books/details',{
+            title:'Detail book',
+            books:bookObject
+      });
+      }
+    });
 });
 
 // POST - process the information passed from the details form and update the document
