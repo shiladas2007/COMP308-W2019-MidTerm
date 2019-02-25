@@ -1,4 +1,4 @@
-//File Name: index.js
+//File Name: book.js
 //this file is for routing the book CRUD
 //Author Name: Shila (300969886) 
 //Date: 23 Feb 2019

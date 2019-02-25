@@ -6,7 +6,12 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
-
+//module for authentication
+let session=require('express-session');
+let passport = require('passport');
+let passportLocal = require('passport-local');
+let localStrategy = passportLocal.Strategy;
+let flash = require('connect-flash');
 // import "mongoose" - required for DB Access
 let mongoose = require('mongoose');
 // URI for accessing DB
@@ -38,6 +43,26 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
 
+//setup express-session
+app.use(session({
+  secret:"SomeSecret",
+  saveUninitialized:false,
+  resave:false
+}));
+//inialize flash
+app.use(flash());
+//initialize passwport
+app.use(passport.initialize());
+app.use(passport.session());
+//passport user config
+//create user model
+let userModel = require('./models/user');
+let User = userModel.User;
+//implement a user authentication strategy
+passport.use(User.createStrategy());
+//serialize and deserialize  user info
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // route redirects
 app.use('/', index);
