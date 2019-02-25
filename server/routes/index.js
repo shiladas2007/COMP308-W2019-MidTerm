@@ -1,4 +1,8 @@
-
+//File Name: index.js
+//this file is for routing the login/register or home page
+//Author Name: Shila (300969886) 
+//Date: 25 Feb 2019
+//web app: COMP308-W2019-MidTerm
 
 // modules required for routing
 let express = require('express');
