@@ -1,3 +1,5 @@
 {
-    "vsicons.presets.angular": false
+    "vsicons.presets.angular": false,
+    "appService.defaultWebAppToDeploy": "/subscriptions/f1f7eb30-75fd-4103-98d2-0c481ea90d91/resourceGroups/appsvc_rg_linux_centralus/providers/Microsoft.Web/sites/COMP308W2019MidTerm300969886",
+    "appService.deploySubpath": ""
 }
