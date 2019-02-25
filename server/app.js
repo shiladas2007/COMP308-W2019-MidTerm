@@ -1,3 +1,5 @@
+
+
 // moddules for node and express
 let createError = require('http-errors');
 let express = require('express');
@@ -7,7 +9,7 @@ let logger = require('morgan');
 
 // import "mongoose" - required for DB Access
 let mongoose = require('mongoose');
-// URI
+// URI for accessing DB
 let config = require('./config/db');
 
 mongoose.connect(process.env.URI || config.URI, { useNewUrlParser: true });
